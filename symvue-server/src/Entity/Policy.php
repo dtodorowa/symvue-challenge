@@ -16,19 +16,19 @@ class Policy
     #[ORM\Column]
     private ?float $premium = null;
 
-    #[ORM\ManyToOne(inversedBy: 'policies')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Client $client = null;
-
-    #[ORM\ManyToOne(inversedBy: 'policies')]
+    #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Customer $customer = null;
 
-    #[ORM\ManyToOne(inversedBy: 'policies')]
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Client $client = null;
+
+    #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?PolicyType $policyType = null;
 
-    #[ORM\ManyToOne(inversedBy: 'policies')]
+    #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Insurer $insurer = null;
 
@@ -49,18 +49,6 @@ class Policy
         return $this;
     }
 
-    public function getClient(): ?Client
-    {
-        return $this->client;
-    }
-
-    public function setClient(?Client $client): self
-    {
-        $this->client = $client;
-
-        return $this;
-    }
-
     public function getCustomer(): ?Customer
     {
         return $this->customer;
@@ -73,12 +61,24 @@ class Policy
         return $this;
     }
 
-    public function getpolicyType(): ?PolicyType
+    public function getClient(): ?Client
+    {
+        return $this->client;
+    }
+
+    public function setClient(?Client $client): self
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    public function getPolicyType(): ?PolicyType
     {
         return $this->policyType;
     }
 
-    public function setpolicyType(?PolicyType $policyType): self
+    public function setPolicyType(?PolicyType $policyType): self
     {
         $this->policyType = $policyType;
 

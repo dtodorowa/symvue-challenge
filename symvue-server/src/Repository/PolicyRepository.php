@@ -39,6 +39,30 @@ class PolicyRepository extends ServiceEntityRepository
         }
     }
 
+    public function transform(Policy $policy) {
+        return [
+            'id' => (int) $policy->getId(),
+            'customer' => (object) [
+                'name' => (string) $policy->getCustomer()->getName(),
+                'address' => (string) $policy->getCustomer()->getAddress() ],
+            'client' =>  (string) $policy->getClient()->getName(),
+            'type' => (string) $policy->getPolicyType()->getType(),
+            'insurer' => (string) $policy->getInsurer()->getName(),
+            'premium' => (double) $policy->getPremium()
+        ];  
+    }
+
+    public function transformAll() {
+        $policies = $this->findAll();
+        $policyArray = [];
+
+        foreach ($policies as $policy) {
+            $policyArray[] = $this->transform($policy);
+        }
+
+        return $policyArray;
+    }
+
 //    /**
 //     * @return Policy[] Returns an array of Policy objects
 //     */
