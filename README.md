@@ -16,3 +16,7 @@ to install dependencies and run db migration:
 composer install
 php bin/console doctrine:migrations:migrate
 ```
+to run the backend on port 8000:
+```
+php -S 127.0.0.1:8000 -t public
+```
