@@ -1,5 +1,6 @@
 # symvue-challenge
-Code challenge for learning Symfony and Vue.js
+Code challenge for learning Symfony and Vue.js <br>
+Narration-less demo available here: https://youtu.be/n_WhhZumt4k
 
 ### Pre-reqs
 You need to have mySQL, PHP, Composer and Node.js installed for this to work
