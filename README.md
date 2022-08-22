@@ -56,5 +56,5 @@ et voila:
 ![Add Policy](https://github.com/dtodorowa/symvue-challenge/blob/main/images/AddPolicy.png?raw=true)
 
 ## Database Schema
-![ERD](https://github.com/dtodorowa/symvue-challenge/blob/main/images/db_schema.png?raw=true)
+![ERD](https://github.com/dtodorowa/symvue-challenge/blob/main/images/ERD.png?raw=true)
 ![mysql describe](https://github.com/dtodorowa/symvue-challenge/blob/main/images/mysql_describe.png?raw=true)
