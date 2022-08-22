@@ -49,8 +49,12 @@ npm install
 vue serve
 ```
 et voila:
-![First Steps and Info](https://github.com/dtodorowa/symvue-challenge/blob/main/FirstSteps.png?raw=true)
-![Policies](https://github.com/dtodorowa/symvue-challenge/blob/main/Policies.png?raw=true)
-![Searching](https://github.com/dtodorowa/symvue-challenge/blob/main/Searching.png?raw=true)
-![Edit Policy](https://github.com/dtodorowa/symvue-challenge/blob/main/EditPolicy.png?raw=true)
-![Add Policy](https://github.com/dtodorowa/symvue-challenge/blob/main/AddPolicy.png?raw=true)
+![First Steps and Info](https://github.com/dtodorowa/symvue-challenge/blob/main/images/FirstSteps.png?raw=true)
+![Policies](https://github.com/dtodorowa/symvue-challenge/blob/main/images/Policies.png?raw=true)
+![Searching](https://github.com/dtodorowa/symvue-challenge/blob/main/images/Searching.png?raw=true)
+![Edit Policy](https://github.com/dtodorowa/symvue-challenge/blob/main/images/EditPolicy.png?raw=true)
+![Add Policy](https://github.com/dtodorowa/symvue-challenge/blob/main/images/AddPolicy.png?raw=true)
+
+## Database Schema
+![ERD](https://github.com/dtodorowa/symvue-challenge/blob/main/images/db_schema.png?raw=true)
+![mysql describe](https://github.com/dtodorowa/symvue-challenge/blob/main/images/mysql_describe.png?raw=true)
