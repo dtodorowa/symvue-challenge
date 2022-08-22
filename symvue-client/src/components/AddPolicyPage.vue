@@ -1,5 +1,7 @@
 <template>
 
+
+
     <form class="space-y-8 divide-y divide-gray-200">
         <div class="space-y-8 divide-y divide-gray-200 sm:space-y-5">
 
@@ -10,6 +12,10 @@
                 </div>
             </div>
 
+  <content-loader v-if="isLoading" :speed="2" :animate="true">
+  </content-loader>
+
+<div v-else class="my-real-content">
             <div class="space-y-6 sm:space-y-5">
 
                 <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
@@ -18,7 +24,7 @@
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <select id="country" name="country" autocomplete="country-name"
                             class="h-10 px-1  max-w-lg block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
-                           <option v-for="c in this.customers" :key="c.name">{{c.name}}</option>
+                           <option v-for="c in this.customers" :key="c.id">{{c.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -29,7 +35,7 @@
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <select id="country" name="country" autocomplete="country-name"
                             class="h-10 px-1  max-w-lg block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
-                                <option v-for="i in this.insurers" :key="i.name">{{i.name}}</option>
+                                <option v-for="i in this.insurers" :key="i.id">{{i.name}}</option>
                         </select>
                     </div>
                 </div>
@@ -40,7 +46,7 @@
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <select id="country" name="country" autocomplete="country-name"
                             class="h-10 px-1  max-w-lg block focus:ring-indigo-500 focus:border-indigo-500 w-full shadow-sm sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
-                            <option v-for="pType in this.policyTypes" :key="pType.name">{{pType.name}}</option>
+                            <option v-for="pType in this.policyTypes" :key="pType.id">{{pType.type}}</option>
                         </select>
                     </div>
                 </div>
@@ -66,48 +72,44 @@
                 </button>
             </div>
         </div>
+     </div>
     </form>
+
+   
 
 </template>
 
 <script >
+    import axios from 'axios'
+    import { ContentLoader} from 'vue-content-loader';
+
     export default {
-        components: {},
+        components: {
+            ContentLoader
+        },
         data() {
             return {
-                customers: [
-                    {
-                        'name': 'cus1'
-                    },
-                    {
-                        'name': 'cus2'
-                    },
-                    {
-                        'name': 'cus3'
-                    }],
-                insurers: [
-                    {
-                        'name': 'ins1'
-                    },
-                    {
-                        'name': 'ins2'
-                    },
-                    {
-                        'name': 'ins3'
-                    },
-                ],
-                 policyTypes: [{
-                        'name': 'pt1'
-                    },
-                    {
-                        'name': 'pt2'
-                    },
-                    {
-                        'name': 'pt3'
-                    },
-                ],
-              
+                customers: {},
+                insurers: {},
+                policyTypes: {},  
+                isLoading: true,
             }
+        },
+            async created() {
+            try {
+                const response2 = await axios.get('http://localhost:8000/customer')
+                const response = await axios.get('http://localhost:8000/insurer')
+                const response3 = await axios.get('http://localhost:8000/policyType')
+                
+                this.customers = response2.data
+                this.insurers = response.data
+                this.policyTypes = response3.data
+
+                this.isLoading = false
+            } catch (e) {
+                // handle authentication error here
+            }
+
         },
     } 
     </script>
