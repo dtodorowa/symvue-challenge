@@ -2,7 +2,7 @@
 Code challenge for learning Symfony and Vue.js
 
 ### Pre-reqs
-You need to have mySQL, PHP and Node.js installed for this to work
+You need to have mySQL, PHP, Composer and Node.js installed for this to work
 
 ### Setting Up the Backend and DB 
 create the db, add a symvue user and grant privileges:
