@@ -49,5 +49,8 @@ npm install
 vue serve
 ```
 et voila:
-![alt text](https://github.com/dtodorowa/symvue-challenge/blob/main/symvue_screenshot.png?raw=true)
-
+![First Steps and Info](https://github.com/dtodorowa/symvue-challenge/blob/main/FirstSteps.png?raw=true)
+![Policies](https://github.com/dtodorowa/symvue-challenge/blob/main/Policies.png?raw=true)
+![Searching](https://github.com/dtodorowa/symvue-challenge/blob/main/Searching.png?raw=true)
+![Edit Policy](https://github.com/dtodorowa/symvue-challenge/blob/main/EditPolicy.png?raw=true)
+![Add Policy](https://github.com/dtodorowa/symvue-challenge/blob/main/AddPolicy.png?raw=true)
