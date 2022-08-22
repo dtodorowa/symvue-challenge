@@ -41,7 +41,7 @@
 							Things I wanted to do better 
 						</dt>
 						<dd class="mt-2 text-base text-indigo-200">
-							<b>Modularity</b> I could've broken down the pages into smaller components but since maintaincence and collaboration are not the main concern, I left the components relatively large.<br/>
+							<b>Modularity</b> I could've broken down the pages into smaller components but since maintenance and collaboration are not the main concern, I left the components relatively large.<br/>
 							<b>Programatic Routing</b> I could not get programatic routing to work on form submission, so the user has to manually navigate back when adding and editing a policy. Bad practice. I will focus on learning how to do it this week. <br>
 							<b>Security</b> since the app allows user input, it is very important to validate and sanitize all input but I did not focus on it as much as I normally would.
 						</dd>
