@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
-    "ant-design-vue": "^3.2.11",
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",

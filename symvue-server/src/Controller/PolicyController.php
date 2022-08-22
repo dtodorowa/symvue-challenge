@@ -56,10 +56,10 @@ class PolicyController extends AbstractController
         $data = json_decode($request->getContent());
    
         $policy = new Policy();
-        $policy->setCustomer($this->customerRepo->findOneBy(['id' => $data->customer->id]));
-        $policy->setClient($this->clientRepo->findOneBy(['id' => $data->client->id]));
-        $policy->setInsurer($this->insurerRepo->findOneBy(['id' => $data->insurer->id]));
-        $policy->setPolicyType($this->policyTypeRepo->findOneBy(['id' => $data->policyType->id]));
+        $policy->setCustomer($this->customerRepo->findOneBy(['id' => $data->customer_id]));
+        $policy->setClient($this->clientRepo->findOneBy(['id' => $data->client_id]));
+        $policy->setInsurer($this->insurerRepo->findOneBy(['id' => $data->insurer_id]));
+        $policy->setPolicyType($this->policyTypeRepo->findOneBy(['id' => $data->policy_type_id]));
         $policy->setPremium($data->premium);
  
         $entityManager = $doctrine->getManager();
@@ -67,5 +67,43 @@ class PolicyController extends AbstractController
         $entityManager->flush();
 
         return $this->json($policy, Response::HTTP_CREATED);
+    }
+
+    #[Route('/policy/{id}', methods: 'DELETE')]
+    public function delete(ManagerRegistry $doctrine, $id)
+    {
+        $policy = $doctrine->getRepository(Policy::class)->find($id);
+
+        if (!$policy) {
+            throw $this->createNotFoundException(
+                'No policy found for id '.$id
+            );
+        }
+        
+        $entityManager = $doctrine->getManager();      
+        $entityManager->remove($policy);
+        $entityManager->flush();
+
+        return new Response('OK');
+    }
+
+    #[Route('/policy/{id}', methods: 'PUT')]
+    public function edit(ManagerRegistry $doctrine, Request $request, $id)
+    { 
+        $entityManager = $doctrine->getManager();
+        $data = json_decode($request->getContent());
+        $policy = $entityManager->getRepository(Policy::class)->find($id);
+        
+        if (!$policy) {
+            throw $this->createNotFoundException(
+                'No policy found for id '.$id
+            );
+        }
+
+        $policy->setPremium($data->premium);
+
+        $entityManager->flush();
+
+        return new Response("OK");
     }
 }

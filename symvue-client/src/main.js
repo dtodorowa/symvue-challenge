@@ -2,10 +2,14 @@ import { createApp } from 'vue'
 import {createRouter, createWebHistory} from 'vue-router'
 
 import IndexDashboard from './components/IndexDashboard.vue'
-import PolicyPage from './components/PolicyPage.vue'
+import PolicyTablePage from './components/PolicyTablePage.vue'
 import InfoPage from './components/InfoPage.vue'
 import AddPolicyPage from './components/AddPolicyPage.vue'
+import EditPolicyPage from './components/EditPolicyPage.vue'
 import './index.css'
+
+
+
 
 const router = createRouter({
     history: createWebHistory(),
@@ -15,7 +19,7 @@ const router = createRouter({
         },
         {
             path: '/policies',
-            component: PolicyPage
+            component: PolicyTablePage
         },
         {
             path: '/',
@@ -24,6 +28,10 @@ const router = createRouter({
         {
             path: '/add-policy',
             component: AddPolicyPage
+        },
+        {
+            path: '/edit-policy/:id',
+            component: EditPolicyPage
         },
     ]
 })
