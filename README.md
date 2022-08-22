@@ -49,3 +49,5 @@ npm install
 vue serve
 ```
 et voila:
+![alt text](https://github.com/dtodorowa/symvue-challenge/blob/main/symvue_screenshot.png?raw=true)
+
