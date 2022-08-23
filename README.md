@@ -22,6 +22,7 @@ php bin/console doctrine:migrations:migrate
 ```
 populate the database 
 ```
+USE symvue;
 INSERT INTO policy_type (type) VALUES ('Public Liability');
 INSERT INTO policy_type (type) VALUES ('Motor Fleet');
 INSERT INTO client (name) VALUES ('Achme Broker Ltd');
